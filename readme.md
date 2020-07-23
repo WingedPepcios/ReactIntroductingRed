@@ -36,3 +36,9 @@ Przykładowy schemat shorthandu:
 
 1. Stwóz komponent UserAvatar, następnie stwórz komponent Image i przekaż mu propsy src i alt.
 2. Stwórz tablicę userów i wyświetl listę ich avatarów i ich nazwy.
+
+
+### Cz. 2
+
+1. Stwórz komponentu Input Checkbox, textarea, email z validacją
+2. Formularz, który po uzupełnieniu danymi i kliknięciu w zapisz wpisze dane do stanu i wyświetli je w innym divie jako text

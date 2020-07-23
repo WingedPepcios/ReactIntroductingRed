@@ -2,7 +2,10 @@ import React from 'react';
 
 import Button from './atoms/Button';
 import Dumb from './atoms/Dumb';
+
 import { DEFAULT_TEXT } from './data/literals';
+import Counter from './molecules/Counter';
+import useInput from './hooks/useInput';
 
 // const array = [
 //   { text: 'tak'},
@@ -19,14 +22,25 @@ const arrayOfString = [
 
 
 const App = () => {
+  const { value, input } = useInput({
+    defaultValue: 'Target',
+  });
+
   return (
     <div>
-      <Button type="button">
+      {/* <Button type="button">
         <Dumb text="to jest grube!" />
         Super Developerzy?
-      </Button>
+      </Button> */}
       {/* {array.map( (element) => <Button type="button"> {element.text} </Button> )} */}
-      {arrayOfString.map(element => <div><Dumb text={element} /></div>)}
+      {/* {arrayOfString.map(element => <div><Dumb text={element} /></div>)} */}
+      {/* <Counter /> */}
+      <div>
+        {input}
+      </div>
+      <div>
+        {value}
+      </div>
     </div>
   );
 }
