@@ -6,6 +6,10 @@ import Dumb from './atoms/Dumb';
 import { DEFAULT_TEXT } from './data/literals';
 import Counter from './molecules/Counter';
 import useInput from './hooks/useInput';
+import Header from './molecules/Header';
+import Logo from './molecules/Logo';
+import Image from './atoms/Image';
+import { ThemeProvider } from './contexts/Theme';
 
 // const array = [
 //   { text: 'tak'},
@@ -27,21 +31,15 @@ const App = () => {
   });
 
   return (
-    <div>
-      {/* <Button type="button">
-        <Dumb text="to jest grube!" />
-        Super Developerzy?
-      </Button> */}
-      {/* {array.map( (element) => <Button type="button"> {element.text} </Button> )} */}
-      {/* {arrayOfString.map(element => <div><Dumb text={element} /></div>)} */}
-      {/* <Counter /> */}
-      <div>
-        {input}
-      </div>
-      <div>
-        {value}
-      </div>
-    </div>
+    <>
+      <ThemeProvider>
+        <Header>
+          {/* <Logo>
+            <Image src="https://winged.pl/images/jaco_1592557713183.png" alt="Kiełbaski" />
+          </Logo> */}
+        </Header>
+      </ThemeProvider>
+    </>
   );
 }
 

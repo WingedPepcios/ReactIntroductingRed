@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../contexts/Theme';
 
 const Button = ({ children, ...restOfProps }) => {
+  const { backgroundColor } = useContext(ThemeContext);
+
   return (
-    <button {...restOfProps}>
+    <button style={{ backgroundColor }}  {...restOfProps}>
       {children}
     </button>
   );
