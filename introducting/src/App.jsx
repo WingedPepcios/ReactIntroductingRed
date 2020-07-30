@@ -10,6 +10,7 @@ import Header from './molecules/Header';
 import Logo from './molecules/Logo';
 import Image from './atoms/Image';
 import { ThemeProvider } from './contexts/Theme';
+import Settings from './layouts/Settings';
 
 // const array = [
 //   { text: 'tak'},
@@ -32,6 +33,7 @@ const App = () => {
 
   return (
     <>
+      <Settings />
       <ThemeProvider>
         <Header>
           {/* <Logo>
