@@ -1,4 +1,10 @@
 import React from 'react';
+import { 
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 
 import Button from './atoms/Button';
 import Dumb from './atoms/Dumb';
@@ -11,6 +17,8 @@ import Logo from './molecules/Logo';
 import Image from './atoms/Image';
 import { ThemeProvider } from './contexts/Theme';
 import Settings from './layouts/Settings';
+import Menu from './molecules/Menu';
+import Blog from './layouts/Blog';
 
 // const array = [
 //   { text: 'tak'},
@@ -25,23 +33,47 @@ const arrayOfString = [
   'Potężny Paweł',
 ]
 
+const user = {
+  islogged: false,
+  isChecked: true,
+}
 
 const App = () => {
   const { value, input } = useInput({
     defaultValue: 'Target',
   });
 
-  return (
-    <>
-      <Settings />
-      <ThemeProvider>
+  if (!user.isChecked) {
+    return <div>loading</div>
+  }
+
+  return (    
+    <ThemeProvider>
+      <Router>
         <Header>
-          {/* <Logo>
-            <Image src="https://winged.pl/images/jaco_1592557713183.png" alt="Kiełbaski" />
-          </Logo> */}
+          <Menu />
         </Header>
-      </ThemeProvider>
-    </>
+        <Route exact path="/">
+          Home
+        </Route>
+        <Route path="/dashboard">
+          Dashboard
+        </Route>
+        <Route path="/blog/:category/:id">
+          <Blog />
+        </Route>
+        <Route path="/settings">
+          <Settings />
+        </Route>
+        <Route path="/login">
+          {/* Login Form */}
+          { user.islogged 
+            ? <Redirect to="/dashboard" />
+            : <div>Form Login</div>
+          }
+        </Route>
+      </Router>
+    </ThemeProvider>
   );
 }
 
