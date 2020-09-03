@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export const ThemeContext = React.createContext();
 
 export const defaultValues = {
-  backgroundColor: '#999',
+  backgroundColor: '#555',
   textColor: '#333',
 }
 

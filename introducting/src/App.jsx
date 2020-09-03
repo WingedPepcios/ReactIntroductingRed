@@ -5,7 +5,9 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 
+import { defaultValues } from './contexts/Theme';
 import Button from './atoms/Button';
 import Dumb from './atoms/Dumb';
 
@@ -15,10 +17,14 @@ import useInput from './hooks/useInput';
 import Header from './molecules/Header';
 import Logo from './molecules/Logo';
 import Image from './atoms/Image';
-import { ThemeProvider } from './contexts/Theme';
+// import { ThemeProvider } from './contexts/Theme';
 import Settings from './layouts/Settings';
 import Menu from './molecules/Menu';
 import Blog from './layouts/Blog';
+
+// import './styles/styles.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/defaultStyles.scss';
 
 // const array = [
 //   { text: 'tak'},
@@ -47,33 +53,32 @@ const App = () => {
     return <div>loading</div>
   }
 
-  return (    
-    <ThemeProvider>
-      <Router>
-        <Header>
-          <Menu />
-        </Header>
-        <Route exact path="/">
-          Home
-        </Route>
-        <Route path="/dashboard">
-          Dashboard
-        </Route>
-        <Route path="/blog/:category/:id">
-          <Blog />
-        </Route>
-        <Route path="/settings">
-          <Settings />
-        </Route>
-        <Route path="/login">
-          {/* Login Form */}
-          { user.islogged 
-            ? <Redirect to="/dashboard" />
-            : <div>Form Login</div>
-          }
-        </Route>
-      </Router>
-    </ThemeProvider>
+  return (
+    <div className="container">
+      <ThemeProvider theme={defaultValues} >
+        <Router>
+          <Route exact path="/">
+            Home
+          </Route>
+          <Route path="/dashboard">
+            Dashboard
+          </Route>
+          <Route path="/blog/:category/:id">
+            <Blog />
+          </Route>
+          <Route path="/settings">
+            <Settings />
+          </Route>
+          <Route path="/login">
+            {/* Login Form */}
+            { user.islogged 
+              ? <Redirect to="/dashboard" />
+              : <div>Form Login</div>
+            }
+          </Route>
+        </Router>
+      </ThemeProvider>
+    </div>
   );
 }
 

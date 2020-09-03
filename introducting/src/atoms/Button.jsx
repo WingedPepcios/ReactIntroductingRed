@@ -5,7 +5,7 @@ const Button = ({ children, ...restOfProps }) => {
   const { backgroundColor } = useContext(ThemeContext);
 
   return (
-    <button style={{ backgroundColor }}  {...restOfProps}>
+    <button className="btn" style={{ backgroundColor }}  {...restOfProps}>
       {children}
     </button>
   );

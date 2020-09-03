@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-const Input = ({ context, name }) => {
+const Input = ({ context, name, className }) => {
   const { setInputsValue } = useContext(context);
   const [value, setValue] = useState('');
 
@@ -15,7 +15,7 @@ const Input = ({ context, name }) => {
 
 
   return (
-    <input value={value} onChange={(e) => setValue(e.target.value )} />
+    <input className={className} value={value} onChange={(e) => setValue(e.target.value )} />
   );
 };
 
