@@ -7,14 +7,14 @@ const httpRequest = async (endpoint, method, body, config) => {
     body: body ? JSON.stringify(body) : null,
   });
 
-  return res.json();
+  return res;
 }
 
 export default httpRequest;
 
 const httpMiddleware = async (...params) => {
   try {
-    return await httpRequest(...params);
+    return await httpRequest(...params).json();
   } catch (err) {
     console.log(err);
   }

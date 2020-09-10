@@ -13,6 +13,7 @@ import { http } from './utils/httpClient';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/defaultStyles.scss';
+import Dashboard from './layouts/Dashboard';
 
 const user = {
   islogged: false,
@@ -45,6 +46,7 @@ const App = () => {
 
   return (
     <div className="container">
+      <Dashboard />
       <div className="py-5">
         <div>
           <span className="mr-2">Name:</span>
